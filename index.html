@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pet Website</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Poppins", sans-serif;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 40px;
+      background: #ffffff;
+      flex-wrap: wrap;
+    }
+
+    ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    ul li {
+      cursor: pointer;
+    }
+
+    button {
+      background-color: rgb(253, 96, 122);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .Background {
+      position: relative;
+    }
+
+    .Background img {
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+    }
+
+    .text {
+      position: absolute;
+      top: 30%;
+      left: 5%;
+      color: #000;
+      max-width: 500px;
+    }
+
+    .text h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+
+    .Section1 {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding: 40px 20px;
+    }
+
+    .card {
+      background: #fff;
+      width: 250px;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .card:hover {
+      background-color: rgb(241, 80, 107);
+      color: white;
+    }
+    .Section2 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      padding: 50px 20px;
+      flex-wrap: wrap;
+    }
+
+    .Section2 img {
+      width: 400px;
+      height: auto;
+
+    }
+    .Section3 {
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    .form-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .form-row input,
+    .form-row select,
+    .form-row textarea {
+      padding: 12px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .form-row textarea {
+      height: 100px;
+    }
+
+    .form-row button {
+      background: rgb(208, 255, 0);
+      border-radius: 8px;
+      padding: 10px 10px;
+    }
+
+    .Section4 {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+      padding: 40px 20px;
+    }
+
+    .card1 {
+      background: #fff;
+      border-radius: 10px;
+      padding: 20px;
+      width: 230px;
+      text-align: center;
+    }
+
+    .card1 img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .role {
+      color: #e91e63;
+      font-weight: bold;
+    }
+
+    .testimonial-content {
+      background-color: #e91e63;
+      padding: 50px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    .testimonial-cards {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .testimonial-cards .card {
+      background: #fff;
+      color: #000;
+      width: 250px;
+
+    }
+
+    .testimonial-cards img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-top: 10px;
+    }
+    .blog-section {
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .blog-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 25px;
+    }
+
+    .blog-card {
+      background: #fff;
+      width: 320px;
+    }
+
+    .blog-card img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    .blog-content {
+      padding: 20px;
+      text-align: left;
+    }
+
+    .read-more {
+      background-color: #ff3c78;
+      border: none;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    /* Footer */
+    .footer {
+      background: #f3f3f3;
+      padding: 50px 20px;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+
+    .footer-section {
+      width: 250px;
+      text-align: left;
+    }
+
+    .footer-section ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-section ul li {
+      margin: 8px 0;
+    }
+
+    /* Responsive Media Queries */
+    @media (max-width: 992px) {
+      .text h1 {
+        font-size: 2rem;
+      }
+
+      .Section2 {
+        flex-direction: column;
+      }
+
+      .Section2 img {
+        width: 90%;
+      }
+
+      .hero-text {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+      }
+
+      .text {
+        top: 20%;
+        left: 5%;
+        text-align: center;
+      }
+
+      .text h1 {
+        font-size: 1.8rem;
+      }
+
+      .Section1,
+      .Section4,
+      .testimonial-cards,
+      .blog-container {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .Background img {
+        height: 70vh;
+      }
+    }
+
+    @media (max-width: 480px) {
+      ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .text {
+        top: 15%;
+        left: 10px;
+        right: 10px;
+      }
+
+      .text h1 {
+        font-size: 1.4rem;
+      }
+
+      .form-row input, .form-row select, .form-row textarea {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="img/logo.jpg" alt="Logo" width="150">
+    <ul>
+      <li>Home</li>
+      <li>About</li>
+      <li>Groomer</li>
+      <li>Services</li>
+      <li>Blog</li>
+      <li>Pricing</li>
+      <li>Contact</li>
+    </ul>
+    <button>Contact Us</button>
+  </div>
+
+  <div class="Background">
+    <img src="img/bg_1.jpg" alt="Pet Background">
+    <div class="text">
+      <h1>The Kind of Care <br> Your Pets Deserve</h1>
+      <h5>With the right support, healing is within reach.</h5>
+      <p>We treat all types of addictions and mental health concerns.</p>
+      <div class="Button">
+        <button>Make Appointment</button>
+        <button style="background-color: greenyellow; color: black;">0345-8267</button>
+      </div>
+    </div>
+  </div>
+  <div class="Section1">
+    <div class="card">
+      <div class="icon">🩺</div>
+      <h3>Veterinary Service</h3>
+      <p>Far far away, behind the word mountains.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🛁</div>
+      <h3>Pet Grooming</h3>
+      <p>Far far away, behind the word mountains.</p>
+    </div>
+    <div class="card">
+      <div class="icon">🐕</div>
+      <h3>Pet Sitting</h3>
+      <p>Far far away, behind the word mountains.</p>
+    </div>
+  </div>
+
+  <div class="Section2">
+    <img src="img/about.jpg" alt="Pet Image">
+    <div class="hero-text">
+      <h5 style="color: rgb(245, 100, 124);">Welcome to PetVet</h5>
+      <h1 style="color: #e91e63;">We Are Best Agency For Your Pets</h1>
+      <p>A small river named Duden flows by their place and supplies it with the necessary regalia.</p>
+    </div>
+  </div>
+
+  <div class="Section3">
+    <h2 style="color: rgb(255, 88, 116);">Make an Appointment</h2>
+    <form>
+      <div class="form-row">
+        <input type="text" placeholder="First Name">
+        <input type="text" placeholder="Last Name">
+        <select>
+          <option>Select Service</option>
+          <option>Veterinary</option>
+          <option>Grooming</option>
+          <option>Sitting</option>
+        </select>
+        <input type="text" placeholder="Phone">
+      </div>
+      <div class="form-row">
+        <input type="date">
+        <textarea placeholder="Message"></textarea>
+        <button type="submit">Appointment</button>
+      </div>
+    </form>
+  </div>
+
+
+  <h2 style="color:#e91e63;text-align:center;">Our Groomers</h2>
+  <div class="Section4">
+    <div class="card1">
+      <img src="img/10.jpeg" alt="Lloyd Wilson">
+      <div class="name">Lloyd Wilson</div>
+      <div class="role">CEO, Founder</div>
+    </div>
+    <div class="card1">
+      <img src="img/7.webp" alt="Rachel Parker">
+      <div class="name">Rachel Parker</div>
+      <div class="role">Trainer</div>
+    </div>
+    <div class="card1">
+      <img src="img/8.webp" alt="Ian Smith">
+      <div class="name">Ian Smith</div>
+      <div class="role">Groomer</div>
+    </div>
+    <div class="card1">
+      <img src="img/9.webp" alt="Alicia Henderson">
+      <div class="name">Alicia Henderson</div>
+      <div class="role">Groomer</div>
+    </div>
+  </div>
+
+  <div class="testimonial-content">
+    <h3>READ TESTIMONIALS</h3>
+    <h2>Happy Customers Say</h2>
+    <div class="testimonial-cards">
+      <div class="card">
+        <img src="img/11.jpg" alt="Customer 1">
+        <p>Far far away, behind the word mountains.</p>
+        <h4>Lloyd Gomez</h4>
+        <small>Customer</small>
+      </div>
+      <div class="card">
+        <img src="img/12.jpg" alt="Customer 2">
+        <p>Far far away, behind the word mountains.</p>
+        <h4>Sarah Khan</h4>
+        <small>Customer</small>
+      </div>
+      <div class="card">
+        <img src="img/13.jpg" alt="Customer 3">
+        <p>Far far away, behind the word mountains.</p>
+        <h4>Ian White</h4>
+        <small>Customer</small>
+      </div>
+    </div>
+  </div>
+
+  <section class="blog-section">
+    <h2 class="section-title">Latest Blog Updates</h2>
+    <div class="blog-container">
+      <div class="blog-card">
+        <img src="img/14.jpg" alt="">
+        <div class="blog-content">
+          <h3>Shelter and Feed Animals that Are in Need</h3>
+          <p>Far far away, behind the word mountains</p>
+          <button class="read-more">Read more</button>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img src="img/15.jpeg" alt="">
+        <div class="blog-content">
+          <h3>Pet Care Essentials for Your Furry Friends</h3>
+          <p>Far far away, behind the word mountains</p>
+          <button class="read-more">Read more</button>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img src="img/16.jpeg" alt="">
+        <div class="blog-content">
+          <h3>Healthy Food for Dogs & Cats</h3>
+          <p>Far far away, behind the word mountains</p>
+          <button class="read-more">Read more</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-section">
+        <img src="img/logo.jpg" alt="Logo" width="150">
+        <p>Far far away, behind the word mountains, far from the countries.</p>
+      </div>
+      <div class="footer-section">
+        <h3>Links</h3>
+        <ul>
+          <li>Home</li>
+          <li>About</li>
+          <li>Services</li>
+          <li>Blog</li>
+          <li>Contact</li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h3>Have Questions?</h3>
+        <ul>
+          <li>✉ info@yourdomain.com</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
